@@ -1,270 +1,589 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth bg-black text-violet-950">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Declan Carvalho | Biography</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <title>EaglerHost Solutions | Premium Hosting</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                    colors: {
+                        black: '#ffffff',
+                        dark: '#ffffff',
+                        darker: '#f5f0ff',
+                        neon: '#7c3aed', // Purple accent
+                        'neon-dim': 'rgba(124, 58, 237, 0.2)',
+                        'neon-hover': '#6d28d9',
+                    },
+                    boxShadow: {
+                        'neon': '0 0 15px rgba(124, 58, 237, 0.5)',
+                        'neon-lg': '0 0 30px rgba(124, 58, 237, 0.7)',
+                    }
+                }
+            }
+        }
+    </script>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <a href="#home" class="nav-brand">DECLAN.EXE</a>
-        <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#coding">Coding</a>
-            <a href="#minecraft">Minecraft</a>
-            <a href="#contact">Contact</a>
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f5f0ff; }
+        ::-webkit-scrollbar-thumb { background: #7c3aed; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #6d28d9; }
+
+        /* Neon Text Utilities */
+        .text-neon-glow {
+            text-shadow: 0 0 10px rgba(124, 58, 237, 0.7);
+        }
+
+        /* Form Controls Styling */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+            height: 6px;
+            border-radius: 3px;
+            outline: none;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #7c3aed;
+            cursor: pointer;
+            margin-top: -7px;
+            box-shadow: 0 0 10px #7c3aed;
+            transition: transform 0.2s;
+        }
+        input[type=range]::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 6px;
+            cursor: pointer;
+            background: #ddd6fe;
+            border-radius: 3px;
+        }
+        
+        select, input[type="text"], input[type="email"], textarea {
+            background-color: #ffffff;
+            border: 1px solid #ddd6fe;
+            color: #2e1065;
+            transition: all 0.3s ease;
+        }
+        select:focus, input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+            border-color: #7c3aed;
+            box-shadow: 0 0 10px rgba(124, 58, 237, 0.2);
+            outline: none;
+        }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Tab Transitions */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Purple and white theme */
+        body {
+            color: #2e1065;
+            background: linear-gradient(135deg, #ffffff 0%, #f5f0ff 32%, #e9d5ff 65%, #ffffff 100%);
+            min-height: 100vh;
+        }
+        header { background: linear-gradient(125deg, #ffffff 0%, #f3e8ff 50%, #d8b4fe 100%); }
+        #services { background: linear-gradient(155deg, #faf7ff, #ede9fe 55%, #ffffff); }
+        #bio, #contact { background: linear-gradient(135deg, #ffffff, #f3e8ff); }
+        nav { background: rgba(255,255,255,.88) !important; }
+        footer { background: #faf7ff !important; }
+        .bg-dark { background: rgba(255,255,255,.92); box-shadow: 0 8px 30px rgba(76,29,149,.06); }
+        .bg-black { background-color: #ffffff; }
+        .text-gray-200, .text-gray-300 { color: #4c1d95; }
+        .text-gray-400, .text-gray-500, .text-gray-600 { color: #625474; }
+        .border-gray-700, .border-gray-800, .border-gray-900 { border-color: #ddd6fe; }
+        .text-neon-glow { text-shadow: 0 2px 18px rgba(124,58,237,.18); }
+        .bg-neon { background: linear-gradient(135deg, #8b5cf6, #6d28d9); color: #ffffff; }
+        .hover\:bg-neon:hover, .hover\:bg-neon-hover:hover { background: #6d28d9; color: #ffffff; }
+        .hover\:text-violet-950:hover { color: #4c1d95; }
+        input[type=range]::-moz-range-thumb { background: #7c3aed; border: 0; border-radius: 50%; width: 20px; height: 20px; }
+        input[type=range]::-moz-range-track { background: #ddd6fe; height: 6px; border-radius: 3px; }
+        ::selection { background: #ddd6fe; color: #2e1065; }
+
+        /* Responsive phone layout */
+        html { scroll-padding-top: 120px; }
+        nav > div > div { flex-wrap: wrap; height: auto; min-height: 80px; padding-block: 12px; gap: 12px; }
+        nav .hidden.md\:flex { display: flex; flex-wrap: wrap; gap: 12px; }
+        nav .space-x-8 > * { margin-left: 0; }
+        button, input, select, textarea { touch-action: manipulation; }
+        button, nav a { min-height: 44px; }
+        nav a { display: inline-flex; align-items: center; }
+        .grid > *, .flex > * { min-width: 0; }
+        a[href^="mailto:"] { overflow-wrap: anywhere; }
+        @media (max-width: 767px) {
+            nav > div > div { justify-content: center; }
+            nav .hidden.md\:flex { width: 100%; justify-content: center; font-size: 12px; }
+            header { padding-top: 180px !important; padding-bottom: 64px !important; }
+            h1 { font-size: clamp(2rem, 9vw, 3rem) !important; overflow-wrap: anywhere; }
+            section { padding-block: 56px !important; }
+            h2 { font-size: 1.65rem !important; letter-spacing: .04em !important; }
+            .tab-btn { flex: 1 1 140px; padding: 12px; font-size: 13px; }
+            #custom .gap-12 { gap: 28px; }
+            #custom .flex.justify-between { flex-wrap: wrap; gap: 6px; }
+            #custom ul li { gap: 12px; }
+            #custom ul li span:last-child { text-align: right; }
+            input[type="text"], input[type="email"], textarea, select { font-size: 16px !important; }
+            input[type="range"] { height: 32px; }
+            input[type="range"]::-webkit-slider-thumb { height: 24px; width: 24px; margin-top: -9px; }
+            #dedicated h3 { padding-top: 32px; }
+            #contact a { font-size: 15px; letter-spacing: 0; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto !important; }
+            *, *::before, *::after { animation: none !important; transition: none !important; }
+            .reveal { opacity: 1; transform: none; }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="fixed w-full z-50 top-0 border-b border-neon-dim bg-black/90 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="w-8 h-8 rounded border-2 border-neon flex items-center justify-center shadow-neon">
+                        <span class="text-neon font-mono font-bold text-xl">></span>
+                    </div>
+                    <span class="font-bold text-2xl tracking-tighter text-violet-950">Eagler<span class="text-neon text-neon-glow">Host</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center font-mono text-sm">
+                    <a href="#services" class="text-gray-400 hover:text-neon transition-colors duration-300">/Services</a>
+                    <a href="#bio" class="text-gray-400 hover:text-neon transition-colors duration-300">/About</a>
+                    <a href="#contact" class="bg-transparent border border-neon text-neon hover:bg-neon hover:text-white transition-all duration-300 px-4 py-2 rounded shadow-[0_0_10px_rgba(124,58,237,0.2)] hover:shadow-neon">Connect</a>
+                </div>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <p class="hero-label">// personal biography boot sequence</p>
-            <h1 class="hero-name">DECLAN CARVALHO</h1>
-            <p class="hero-subtitle">
-                Coder.<br>
-                Gamer.<br>
-                Financial powerhouse.*
+    <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden flex flex-col items-center text-center px-4">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-neon-dim via-violet-50 to-white z-0 pointer-events-none"></div>
+        
+        <div class="relative z-10 max-w-4xl mx-auto reveal active">
+            <div class="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border border-neon/30 bg-neon/5 text-neon font-mono text-xs md:text-sm">
+                <span class="w-2 h-2 rounded-full bg-neon animate-pulse"></span>
+                SYSTEMS ONLINE. READY FOR DEPLOYMENT.
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 text-violet-950 uppercase">
+                Unleash <span class="text-neon text-neon-glow">Raw Power</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+                High-performance VPS hosting engineered specifically for Minecraft & Eaglercraft. Zero lag, unmetered NVMe, and pure computational dominance.
             </p>
-            <p class="hero-footnote">*definition of powerhouse may vary</p>
-
-            <div class="terminal-window">
-                <div class="terminal-bar">
-                    <span class="dot red"></span>
-                    <span class="dot yellow"></span>
-                    <span class="dot green"></span>
-                    <span class="terminal-title">declan_boot.sh</span>
-                </div>
-                <pre class="terminal-body">
-> loading declan.exe...
-
-name: Declan Carvalho
-coding: ENABLED
-minecraft: INSTALLED
-financial_information: CLASSIFIED
-                </pre>
-            </div>
-
-            <a href="#about" class="cta-button">ENTER THE LORE</a>
+            <a href="#services" class="inline-block bg-neon text-white font-bold font-mono py-4 px-8 rounded shadow-neon hover:shadow-neon-lg hover:-translate-y-1 transition-all duration-300 text-lg uppercase tracking-wider">
+                Deploy Server
+            </a>
         </div>
-    </section>
+    </header>
 
-    <!-- About -->
-    <section id="about" class="about">
-        <div class="section-inner">
-            <h2 class="section-title">About Declan</h2>
-            <p class="section-intro">
-                Declan Carvalho is a friend who treats coding like a side quest and gaming like a full-time career.
-                If something has pixels or a blinking cursor, he is probably already deep into it.
-            </p>
-
-            <div class="stat-grid">
-                <div class="stat-card">
-                    <h3>CODING</h3>
-                    <div class="bar"><span class="fill fill-90"></span></div>
-                    <p>Always debugging something. Sometimes on purpose.</p>
-                </div>
-                <div class="stat-card">
-                    <h3>MINECRAFT SURVIVAL</h3>
-                    <div class="bar"><span class="fill fill-85"></span></div>
-                    <p>Still alive. Mostly. Depends on the night.</p>
-                </div>
-                <div class="stat-card">
-                    <h3>GAMING ENERGY</h3>
-                    <div class="bar"><span class="fill fill-100"></span></div>
-                    <p>One more round. Then sleep. Then one more round.</p>
-                </div>
-                <div class="stat-card">
-                    <h3>DEBUGGING PATIENCE</h3>
-                    <div class="bar"><span class="fill fill-80"></span></div>
-                    <p>Will stare at one CSS line for 45 minutes.</p>
-                </div>
-                <div class="stat-card mystery-stat">
-                    <h3>FINANCIAL EMPIRE</h3>
-                    <div class="bar"><span class="fill fill-mystery">???</span></div>
-                    <p>Access restricted. Scroll later... if you dare.</p>
-                </div>
-                <div class="stat-card">
-                    <h3>PHONE NUMBER VALIDITY</h3>
-                    <div class="bar"><span class="fill fill-questionable">QUESTIONABLE</span></div>
-                    <p>Contains letters. We do not ask questions.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Coding -->
-    <section id="coding" class="coding-section">
-        <div class="section-inner">
-            <h2 class="section-title">Coding Mode</h2>
-            <p class="section-intro">
-                Declan loves coding. This is not a rumour. This is documented behaviour.
-            </p>
-
-            <div class="editor-window">
-                <div class="editor-tabs">
-                    <span class="tab active">declan.profile</span>
-                    <span class="tab">bugs.js</span>
-                    <span class="tab">todo.md</span>
-                </div>
-                <pre class="editor-code">
-<span class="code-comment">// Declan Carvalho - living source file</span>
-
-<span class="code-key">name</span> = <span class="code-string">"Declan Carvalho"</span>
-
-<span class="code-key">likes</span> = [
-    <span class="code-string">"Coding"</span>,
-    <span class="code-string">"Minecraft"</span>
-]
-
-<span class="code-key">bank_balance</span> = <span class="code-string">"ACCESS DENIED"</span>
-
-<span class="code-key">current_activity</span> = <span class="code-string">"Changing one line of CSS for 45 minutes."</span>
-                </pre>
+    <section id="services" class="py-24 bg-darker border-y border-neon-dim relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-violet-950 mb-4 uppercase tracking-widest"><span class="text-neon">></span> Select Instance Type</h2>
+                <p class="text-gray-400 font-mono text-sm">Choose predefined slices, bare metal, or configure your own architecture.</p>
             </div>
 
-            <div class="coding-jokes">
-                <div class="joke-box">
-                    <h3>Bug Report</h3>
-                    <p>Bug fixed: <strong>1</strong></p>
-                    <p>New bugs created: <strong>4</strong></p>
-                </div>
-                <div class="joke-box">
-                    <h3>Commit Message</h3>
-                    <p>"fixed stuff (hopefully)"</p>
-                    <p class="dim">- Declan, probably</p>
-                </div>
-                <div class="joke-box">
-                    <h3>Status</h3>
-                    <p>Compiler: confused</p>
-                    <p>Declan: also confused</p>
-                    <p>Website: somehow works</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Minecraft -->
-    <section id="minecraft" class="minecraft-section">
-        <div class="section-inner">
-            <h2 class="section-title">Minecraft Inventory</h2>
-            <p class="section-intro">
-                Declan likes Minecraft. Blocks, caves, crafting tables, and the eternal search for diamonds (and Wi-Fi).
-            </p>
-
-            <div class="inventory-grid">
-                <div class="block-card grass">
-                    <h3>Inventory</h3>
-                    <ul>
-                        <li>Dirt x infinity</li>
-                        <li>Wood x maybe</li>
-                        <li>Diamonds x hopes</li>
-                        <li>Torch x panic mode</li>
-                    </ul>
-                </div>
-                <div class="block-card dirt">
-                    <h3>Skills</h3>
-                    <ul>
-                        <li>Building: creative</li>
-                        <li>Mining: enthusiastic</li>
-                        <li>Fighting: runs first</li>
-                        <li>Redstone: experimental</li>
-                    </ul>
-                </div>
-                <div class="block-card stone">
-                    <h3>Achievements</h3>
-                    <ul>
-                        <li>Survived night #1</li>
-                        <li>Lost house once</li>
-                        <li>Found diamonds late</li>
-                        <li>Touched grass (in-game)</li>
-                    </ul>
-                </div>
-                <div class="block-card wood">
-                    <h3>Current Status</h3>
-                    <ul>
-                        <li>Most valuable resource: Wi-Fi</li>
-                        <li>First night survival: Probably.</li>
-                        <li>Hunger bar: emotional</li>
-                        <li>Bed: placed... somewhere</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Bank surprise -->
-    <section id="bank" class="bank-surprise">
-        <div class="section-inner">
-            <p class="scan-line">SCANNING CLASSIFIED FILES...</p>
-            <h2 class="section-title">SECRET FINANCIAL DATA FOUND...</h2>
-            <p class="section-intro">Decrypting Declan's economic empire. Please wait. Or don't. It's short.</p>
-
-            <div class="vault-box">
-                <p class="vault-label">CURRENT BANK ACCOUNT STATUS</p>
-                <p class="vault-amount">&asymp; $200</p>
-                <p class="vault-note">Around two hundred dollars. The empire is... compact.</p>
+            <!-- Tabs Navigation -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12 reveal">
+                <button class="tab-btn active px-6 py-3 rounded border border-neon bg-neon/10 text-neon font-mono font-bold transition-all shadow-[0_0_10px_rgba(124,58,237,0.1)]" data-target="cloud">Cloud Slices</button>
+                <button class="tab-btn px-6 py-3 rounded border border-gray-700 bg-transparent text-gray-400 hover:text-violet-950 hover:border-gray-500 font-mono font-bold transition-all" data-target="dedicated">Dedicated Bare Metal</button>
+                <button class="tab-btn px-6 py-3 rounded border border-gray-700 bg-transparent text-gray-400 hover:text-violet-950 hover:border-gray-500 font-mono font-bold transition-all" data-target="custom">Custom Builder</button>
             </div>
 
-            <div class="finance-jokes">
-                <p>Financial empire status: <strong>Still loading.</strong></p>
-                <p>Declan's current economic strategy: <strong>Don't spend the around $200.</strong></p>
-                <p>Net worth: <strong>At least enough for several Minecraft accounts.</strong></p>
-            </div>
-        </div>
-    </section>
+            <!-- Tab: Cloud Servers -->
+            <div id="cloud" class="tab-content active reveal">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Slice 1 -->
+                    <div class="bg-dark rounded p-6 border border-gray-800 hover:border-neon transition-all duration-300 group">
+                        <h3 class="text-xl font-bold text-violet-950 mb-1 font-mono group-hover:text-neon">Dirt Slice</h3>
+                        <p class="text-gray-500 text-xs mb-4">Proxy / Small Web</p>
+                        <div class="mb-6"><span class="text-3xl font-extrabold text-violet-950">$4</span><span class="text-gray-500">/mo</span></div>
+                        <ul class="space-y-3 mb-8 text-sm font-mono text-gray-400">
+                            <li><span class="text-neon mr-2">></span>2GB DDR4 RAM</li>
+                            <li><span class="text-neon mr-2">></span>1 vCore CPU</li>
+                            <li><span class="text-neon mr-2">></span>25GB NVMe</li>
+                            <li><span class="text-neon mr-2">></span>1Gbps Port</li>
+                        </ul>
+                        <button class="w-full py-2 border border-neon/50 text-neon hover:bg-neon hover:text-white transition-colors rounded font-mono text-sm uppercase">Select</button>
+                    </div>
 
-    <!-- Contact -->
-    <section id="contact" class="contact">
-        <div class="section-inner">
-            <h2 class="section-title">Contact Declan</h2>
-            <p class="section-intro">
-                Want to reach Declan? Excellent. Here are his completely normal contact details.
-            </p>
+                    <!-- Slice 2 -->
+                    <div class="bg-dark rounded p-6 border border-gray-800 hover:border-neon transition-all duration-300 group">
+                        <h3 class="text-xl font-bold text-violet-950 mb-1 font-mono group-hover:text-neon">Stone Slice</h3>
+                        <p class="text-gray-500 text-xs mb-4">Vanilla SMP</p>
+                        <div class="mb-6"><span class="text-3xl font-extrabold text-violet-950">$8</span><span class="text-gray-500">/mo</span></div>
+                        <ul class="space-y-3 mb-8 text-sm font-mono text-gray-400">
+                            <li><span class="text-neon mr-2">></span>4GB DDR4 RAM</li>
+                            <li><span class="text-neon mr-2">></span>2 vCore CPU</li>
+                            <li><span class="text-neon mr-2">></span>50GB NVMe</li>
+                            <li><span class="text-neon mr-2">></span>1Gbps Port</li>
+                        </ul>
+                        <button class="w-full py-2 border border-neon/50 text-neon hover:bg-neon hover:text-white transition-colors rounded font-mono text-sm uppercase">Select</button>
+                    </div>
 
-            <div class="contact-cards">
-                <div class="contact-card email-card">
-                    <h3>Email</h3>
-                    <p class="weird-contact">notdeclan@notdeclan.notdeclan</p>
-                    <p class="dim">Yes, that is the full address. No, we cannot explain the domain.</p>
+                    <!-- Slice 3 -->
+                    <div class="bg-dark rounded p-6 border border-neon shadow-[0_0_15px_rgba(124,58,237,0.1)] transition-all duration-300 relative overflow-hidden">
+                        <div class="absolute top-2 right-[-20px] bg-neon text-white text-[10px] font-bold px-8 py-1 rotate-45">POPULAR</div>
+                        <h3 class="text-xl font-bold text-violet-950 mb-1 font-mono text-neon">Obsidian Slice</h3>
+                        <p class="text-gray-500 text-xs mb-4">Modded / Plugins</p>
+                        <div class="mb-6"><span class="text-3xl font-extrabold text-violet-950">$16</span><span class="text-gray-500">/mo</span></div>
+                        <ul class="space-y-3 mb-8 text-sm font-mono text-gray-400">
+                            <li><span class="text-neon mr-2">></span>8GB DDR4 RAM</li>
+                            <li><span class="text-neon mr-2">></span>4 vCore CPU</li>
+                            <li><span class="text-neon mr-2">></span>100GB NVMe</li>
+                            <li><span class="text-neon mr-2">></span>2.5Gbps Port</li>
+                        </ul>
+                        <button class="w-full py-2 bg-neon text-white font-bold hover:bg-neon-hover transition-colors rounded font-mono text-sm uppercase shadow-neon">Select</button>
+                    </div>
+
+                    <!-- Slice 4 -->
+                    <div class="bg-dark rounded p-6 border border-gray-800 hover:border-neon transition-all duration-300 group">
+                        <h3 class="text-xl font-bold text-violet-950 mb-1 font-mono group-hover:text-neon">Bedrock Slice</h3>
+                        <p class="text-gray-500 text-xs mb-4">Large Networks</p>
+                        <div class="mb-6"><span class="text-3xl font-extrabold text-violet-950">$30</span><span class="text-gray-500">/mo</span></div>
+                        <ul class="space-y-3 mb-8 text-sm font-mono text-gray-400">
+                            <li><span class="text-neon mr-2">></span>16GB DDR4 RAM</li>
+                            <li><span class="text-neon mr-2">></span>6 vCore CPU</li>
+                            <li><span class="text-neon mr-2">></span>200GB NVMe</li>
+                            <li><span class="text-neon mr-2">></span>2.5Gbps Port</li>
+                        </ul>
+                        <button class="w-full py-2 border border-neon/50 text-neon hover:bg-neon hover:text-white transition-colors rounded font-mono text-sm uppercase">Select</button>
+                    </div>
                 </div>
-                <div class="contact-card phone-card">
-                    <h3>Totally Normal Phone Number</h3>
-                    <p class="weird-contact phone-number">123gaster456</p>
-                    <p class="phone-hover-hint">...interesting.</p>
-                    <p class="dim">Please do not ask how the phone number contains letters.</p>
+            </div>
+
+            <!-- Tab: Dedicated Servers -->
+            <div id="dedicated" class="tab-content">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Dedicated 1 -->
+                    <div class="bg-dark rounded-xl p-8 border border-gray-800 relative hover:-translate-y-2 transition-all duration-300">
+                        <div class="absolute top-4 right-4 bg-violet-100 text-neon border border-neon px-2 py-1 rounded text-xs font-mono animate-pulse">In Stock</div>
+                        <h3 class="text-2xl font-bold text-violet-950 mb-1">Titan Node</h3>
+                        <p class="text-gray-500 text-sm mb-6 font-mono">Ryzen 9 7950X</p>
+                        <div class="mb-6"><span class="text-4xl font-extrabold text-violet-950">$150</span><span class="text-gray-500">/mo</span></div>
+                        <ul class="space-y-3 mb-8 font-mono text-sm text-gray-300">
+                            <li><span class="text-neon mr-2">[+]</span>128GB DDR5 RAM</li>
+                            <li><span class="text-neon mr-2">[+]</span>16 Cores / 32 Threads</li>
+                            <li><span class="text-neon mr-2">[+]</span>2TB NVMe Gen4</li>
+                            <li><span class="text-neon mr-2">[+]</span>10 Gbps Uplink</li>
+                            <li><span class="text-neon mr-2">[+]</span>DDoS Protection</li>
+                        </ul>
+                        <button class="w-full py-3 border border-neon text-neon hover:bg-neon hover:text-white transition-colors rounded font-mono uppercase font-bold">Deploy Titan</button>
+                    </div>
+
+                    <!-- Dedicated 2 (High End) -->
+                    <div class="bg-dark rounded-xl p-8 border-2 border-neon relative hover:-translate-y-2 transition-all duration-300 shadow-neon">
+                        <div class="absolute top-4 right-4 bg-rose-100 text-rose-700 border border-red-500 px-2 py-1 rounded text-xs font-mono animate-pulse">Only 2 Left!</div>
+                        <h3 class="text-2xl font-bold text-violet-950 mb-1 text-neon text-neon-glow">God Node</h3>
+                        <p class="text-gray-400 text-sm mb-6 font-mono">Threadripper 7995WX + Dual GPU</p>
+                        <div class="mb-6"><span class="text-4xl font-extrabold text-violet-950">$450</span><span class="text-gray-500">/mo</span></div>
+                        <ul class="space-y-3 mb-8 font-mono text-sm text-gray-200">
+                            <li><span class="text-neon mr-2">[+]</span>200GB ECC DDR5 RAM</li>
+                            <li><span class="text-neon mr-2">[+]</span>96 Cores / 192 Threads</li>
+                            <li><span class="text-neon mr-2">[+]</span>Dual RTX 4090 (AI/Render)</li>
+                            <li><span class="text-neon mr-2">[+]</span>8TB NVMe Gen5 RAID 0</li>
+                            <li><span class="text-neon mr-2">[+]</span>Unmetered 10 Gbps</li>
+                        </ul>
+                        <button class="w-full py-3 bg-neon text-white transition-colors rounded font-mono uppercase font-bold hover:shadow-neon-lg hover:bg-neon-hover">Deploy God Node</button>
+                    </div>
+
+                    <!-- Dedicated 3 -->
+                    <div class="bg-dark rounded-xl p-8 border border-gray-800 relative opacity-60 grayscale cursor-not-allowed">
+                        <div class="absolute top-4 right-4 bg-violet-100 text-gray-500 border border-gray-700 px-2 py-1 rounded text-xs font-mono">Out of Stock</div>
+                        <h3 class="text-2xl font-bold text-violet-950 mb-1">Quantum Node</h3>
+                        <p class="text-gray-500 text-sm mb-6 font-mono">EPYC 9654</p>
+                        <div class="mb-6"><span class="text-4xl font-extrabold text-violet-950">$300</span><span class="text-gray-500">/mo</span></div>
+                        <ul class="space-y-3 mb-8 font-mono text-sm text-gray-400">
+                            <li><span class="text-gray-600 mr-2">[+]</span>256GB ECC DDR5 RAM</li>
+                            <li><span class="text-gray-600 mr-2">[+]</span>96 Cores / 192 Threads</li>
+                            <li><span class="text-gray-600 mr-2">[+]</span>4TB NVMe Gen5</li>
+                            <li><span class="text-gray-600 mr-2">[+]</span>10 Gbps Uplink</li>
+                        </ul>
+                        <button class="w-full py-3 border border-gray-700 text-gray-600 rounded font-mono uppercase font-bold cursor-not-allowed">Unavailable</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Custom Builder -->
+            <div id="custom" class="tab-content">
+                <div class="max-w-4xl mx-auto bg-dark border border-gray-800 rounded-xl p-6 md:p-10 shadow-lg">
+                    <h3 class="text-2xl font-bold text-violet-950 mb-6 font-mono uppercase border-b border-gray-800 pb-4">Configure Architecture</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        <!-- Controls -->
+                        <div class="space-y-8">
+                            <!-- CPU -->
+                            <div>
+                                <div class="flex justify-between text-sm font-mono mb-2">
+                                    <label class="text-gray-300">CPU Cores (<span class="text-neon">$2/core</span>)</label>
+                                    <span id="out-cpu" class="text-neon font-bold">4 Cores</span>
+                                </div>
+                                <input type="range" id="calc-cpu" min="1" max="32" value="4">
+                            </div>
+                            
+                            <!-- RAM -->
+                            <div>
+                                <div class="flex justify-between text-sm font-mono mb-2">
+                                    <label class="text-gray-300">RAM Allocation (<span class="text-neon">$1.50/GB</span>)</label>
+                                    <span id="out-ram" class="text-neon font-bold">8 GB</span>
+                                </div>
+                                <input type="range" id="calc-ram" min="2" max="128" step="2" value="8">
+                            </div>
+
+                            <!-- Storage -->
+                            <div>
+                                <div class="flex justify-between text-sm font-mono mb-2">
+                                    <label class="text-gray-300">NVMe Storage (<span class="text-neon">$0.10/GB</span>)</label>
+                                    <span id="out-storage" class="text-neon font-bold">100 GB</span>
+                                </div>
+                                <input type="range" id="calc-storage" min="25" max="1000" step="25" value="100">
+                            </div>
+
+                            <!-- Network -->
+                            <div>
+                                <label class="text-gray-300 text-sm font-mono mb-2 block">Network Uplink</label>
+                                <select id="calc-network" class="w-full p-3 rounded font-mono text-sm appearance-none cursor-pointer">
+                                    <option value="0">1 Gbps Shared (Included)</option>
+                                    <option value="10">2.5 Gbps Dedicated (+$10/mo)</option>
+                                    <option value="40">10 Gbps Dedicated (+$40/mo)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Summary & Total -->
+                        <div class="bg-violet-50 border border-gray-800 p-6 rounded flex flex-col justify-between">
+                            <div>
+                                <h4 class="text-gray-500 font-mono text-sm mb-4 uppercase tracking-wider">Deployment Summary</h4>
+                                <ul class="space-y-2 text-sm font-mono text-gray-300 border-b border-gray-800 pb-4 mb-4">
+                                    <li class="flex justify-between"><span>Compute:</span> <span id="sum-cpu">4 vCores</span></li>
+                                    <li class="flex justify-between"><span>Memory:</span> <span id="sum-ram">8 GB DDR4/5</span></li>
+                                    <li class="flex justify-between"><span>Disk:</span> <span id="sum-storage">100 GB NVMe</span></li>
+                                    <li class="flex justify-between"><span>Network:</span> <span id="sum-network">1 Gbps Shared</span></li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <div class="text-gray-500 font-mono text-sm mb-1">Estimated Total</div>
+                                <div class="text-5xl font-extrabold text-violet-950 mb-6 tracking-tighter" id="calc-total">$30.00<span class="text-lg text-gray-500 font-normal font-mono">/mo</span></div>
+                                <button class="w-full py-4 bg-neon text-white font-bold font-mono uppercase rounded hover:bg-neon-hover transition-colors shadow-neon hover:shadow-neon-lg">Initialize Build</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Random Declan Stats -->
-    <section id="stats" class="random-stats">
-        <div class="section-inner">
-            <h2 class="section-title">Random Declan Stats</h2>
-            <p class="section-intro">Final character sheet. Treat as official. Or don't. Declan won't mind.</p>
-
-            <div class="profile-grid">
-                <div class="profile-row"><span>CODING MOTIVATION</span><strong>95%</strong></div>
-                <div class="profile-row"><span>MINECRAFT STATUS</span><strong>ALIVE</strong></div>
-                <div class="profile-row"><span>CURRENT BANK ACCOUNT</span><strong>&asymp; $200</strong></div>
-                <div class="profile-row"><span>PHONE NUMBER</span><strong>123gaster456</strong></div>
-                <div class="profile-row"><span>EMAIL</span><strong>notdeclan@notdeclan.notdeclan</strong></div>
-                <div class="profile-row"><span>GRASS TOUCHED</span><strong>DATA NOT FOUND</strong></div>
+    <section id="bio" class="py-24 bg-black relative">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="w-48 h-48 md:w-64 md:h-64 rounded-full border-4 border-neon/30 p-2 shrink-0 relative">
+                    <div class="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(124,58,237,0.5)] animate-spin" style="animation-duration: 10s;"></div>
+                    <img src="https://placehold.co/400x400/f3e8ff/7c3aed?text=DC" alt="Declan C" class="w-full h-full rounded-full object-cover bg-dark">
+                </div>
+                <div>
+                    <h2 class="text-3xl font-bold text-violet-950 mb-2 uppercase font-mono">Declan C.</h2>
+                    <p class="text-neon font-mono text-sm mb-6 tracking-widest">> Founder & Lead Architect</p>
+                    <p class="text-gray-400 mb-4 leading-relaxed">
+                        Hey, I'm Declan. I started EaglerHost Solutions because I was tired of subpar hosting platforms that couldn't handle the intense demands of heavily modded Minecraft communities and high-traffic Eaglercraft websocket connections. 
+                    </p>
+                    <p class="text-gray-400 leading-relaxed">
+                        My goal is simple: provide raw, unadulterated computing power wrapped in a resilient network. No overselling, no hidden limits. Just pure performance for admins who know what they're doing. Welcome to the elite tier of hosting.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>Made for Declan Carvalho - Friend-to-friend biography website</p>
-        <p class="dim">No JavaScript was harmed in the making of this site.</p>
-        <span class="mystery" title="...">...</span>
+    <section id="contact" class="py-24 bg-darker border-t border-neon-dim">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-violet-950 mb-4 uppercase tracking-widest"><span class="text-neon">></span> Establish Connection</h2>
+                <p class="text-gray-400 font-mono text-sm">Open a secure channel to our support team.</p>
+            </div>
+            
+            <form class="space-y-6 bg-dark p-8 rounded border border-gray-800" onsubmit="event.preventDefault();">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-gray-400 text-xs font-mono mb-2 uppercase">Designation (Name)</label>
+                        <input type="text" class="w-full p-3 rounded font-mono text-sm" placeholder="Admin123">
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 text-xs font-mono mb-2 uppercase">Return Address (Email)</label>
+                        <input type="email" class="w-full p-3 rounded font-mono text-sm" placeholder="admin@domain.com">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-gray-400 text-xs font-mono mb-2 uppercase">Encrypted Payload (Message)</label>
+                    <textarea rows="4" class="w-full p-3 rounded font-mono text-sm resize-none" placeholder="Describe your operational requirements..."></textarea>
+                </div>
+                <button type="submit" class="w-full py-3 border border-neon text-neon hover:bg-neon hover:text-white transition-colors rounded font-mono uppercase font-bold tracking-widest">Transmit Message</button>
+            </form>
+
+            <div class="mt-12 text-center font-mono">
+                <p class="text-gray-500 text-sm mb-2">Or contact the founder directly via secure mail:</p>
+                <a href="mailto:declan.c@eaglerhostingsolutions.fake" class="text-neon hover:text-violet-950 transition-colors text-lg tracking-wider text-neon-glow">declan.c@eaglerhostingsolutions.fake</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black py-8 border-t border-gray-900 text-center">
+        <p class="text-gray-600 font-mono text-xs">&copy; 2026 EaglerHost Solutions. All rights reserved. System Operational.</p>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- Tab Switching Logic ---
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active from all
+                    tabBtns.forEach(b => {
+                        b.classList.remove('active', 'border-neon', 'bg-neon/10', 'text-neon', 'shadow-[0_0_10px_rgba(124,58,237,0.1)]');
+                        b.classList.add('border-gray-700', 'bg-transparent', 'text-gray-400');
+                    });
+                    tabContents.forEach(c => c.classList.remove('active'));
+
+                    // Add active to clicked
+                    btn.classList.add('active', 'border-neon', 'bg-neon/10', 'text-neon', 'shadow-[0_0_10px_rgba(124,58,237,0.1)]');
+                    btn.classList.remove('border-gray-700', 'bg-transparent', 'text-gray-400');
+                    
+                    const targetId = btn.getAttribute('data-target');
+                    document.getElementById(targetId).classList.add('active');
+                });
+            });
+
+            // --- Custom Builder Calculator Logic ---
+            const inputs = {
+                cpu: document.getElementById('calc-cpu'),
+                ram: document.getElementById('calc-ram'),
+                storage: document.getElementById('calc-storage'),
+                network: document.getElementById('calc-network')
+            };
+
+            const outputs = {
+                cpu: document.getElementById('out-cpu'),
+                ram: document.getElementById('out-ram'),
+                storage: document.getElementById('out-storage'),
+            };
+            
+            const summaries = {
+                cpu: document.getElementById('sum-cpu'),
+                ram: document.getElementById('sum-ram'),
+                storage: document.getElementById('sum-storage'),
+                network: document.getElementById('sum-network')
+            };
+
+            const totalDisplay = document.getElementById('calc-total');
+
+            function calculateTotal() {
+                const cpuVal = parseInt(inputs.cpu.value);
+                const ramVal = parseInt(inputs.ram.value);
+                const storageVal = parseInt(inputs.storage.value);
+                const networkVal = parseInt(inputs.network.value);
+
+                // Update Labels
+                outputs.cpu.textContent = `${cpuVal} Cores`;
+                outputs.ram.textContent = `${ramVal} GB`;
+                outputs.storage.textContent = `${storageVal} GB`;
+
+                // Update Summaries
+                summaries.cpu.textContent = `${cpuVal} vCores`;
+                summaries.ram.textContent = `${ramVal} GB RAM`;
+                summaries.storage.textContent = `${storageVal} GB NVMe`;
+                summaries.network.textContent = inputs.network.options[inputs.network.selectedIndex].text.split('(')[0].trim();
+
+                // Calculate Pricing
+                // CPU: $2/core, RAM: $1.5/GB, Storage: $0.1/GB, Network: Flat fee based on select
+                const cost = (cpuVal * 2) + (ramVal * 1.5) + (storageVal * 0.1) + networkVal;
+                
+                totalDisplay.innerHTML = `$${cost.toFixed(2)}<span class="text-lg text-gray-500 font-normal font-mono">/mo</span>`;
+            }
+
+            // Attach event listeners to all inputs
+            Object.values(inputs).forEach(input => {
+                input.addEventListener('input', calculateTotal);
+            });
+
+            // Initial calculation
+            calculateTotal();
+
+            // --- Scroll Animations Logic ---
+            const reveals = document.querySelectorAll('.reveal');
+            
+            const revealOptions = {
+                threshold: 0.1, // Trigger when 10% visible
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('active');
+                        // Optional: Stop observing once revealed
+                        // observer.unobserve(entry.target); 
+                    }
+                });
+            }, revealOptions);
+
+            reveals.forEach(reveal => {
+                revealOnScroll.observe(reveal);
+            });
+            
+            // Trigger active class immediately for hero section elements on load
+            setTimeout(() => {
+                document.querySelectorAll('.reveal').forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if(rect.top < window.innerHeight) {
+                        el.classList.add('active');
+                    }
+                });
+            }, 100);
+        });
+    </script>
 </body>
 </html>
